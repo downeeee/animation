@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0; }
+        body{ background-color: #f1f1f1;}
+        .wrap{}
+        .wrap h1{ text-align: center; line-height: 2;}
+        .box{width: 400px; margin: 100px auto; overflow: hidden;}
+
+        .img_box{ position: relative ; height: 300px;}
+
+        .scroll_bar{width: 100%; height: 30px; background-color: rgb(134, 134, 134);}
+
+        .bar{ width: 50px; height: 30px; background-color: red;cursor: pointer;}
+
+
+        /* 두번쨰 스크롤 */
+
+        .scroll{width: 500px; margin: 100px auto ; overflow: hidden;}
+
+        .img_area{height: 200px; position: relative; overflow: auto;}
+
+        .img_area::-webkit-scrollbar{
+            width: 10px; background-color: black;
+        }
+
+        .img_area::-webkit-scrollbar-thumb{background-color: #2f3542; border-radius: 10px;}
+    </style>
+
+    <script src="script/jquery-3.7.1.js"></script>
+    <script src="script/jquery-ui.js"></script>
+    <script lang="java">
+        $(function(){
+
+            $(".bar").draggable({
+                axis:"x",containment:".scroll_bar"
+            })
+            $(".bar").bind("drag", function(){
+                img_move()
+            })
+
+            function img_move(){
+              var bar_left= parseInt( $(".bar").css("left"));
+              console.log(bar_left)
+
+              pos = (bar_left * -300) / 250 ;
+              console.log("pos:",pos);
+
+              $(".img_box").css({left : pos + "px"})
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <h1>scrollbar</h1>
+
+        <div class="box">
+            <div class="img_box">
+                <img src="img/003.jpg" alt="">
+            </div>
+
+            <div class="scroll_bar">
+                <div class="bar"></div>
+            </div>
+        </div>
+
+        <h1>scrollbar 2</h1>
+
+        <div class="scroll">
+            <div class="img_area">
+                <img src="img/006.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

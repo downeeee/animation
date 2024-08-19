@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body{background-color: #131313; display: flex ; justify-content: center; align-items: center; height: 100vh;}
+
+        .container .card{position: relative ;width: 340px; height: 450px; background-color: #232323; border-radius: 20px;overflow: hidden; }
+
+        .container .card::before{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgb(179, 255, 0); clip-path: circle(150px at 80% 20%) ; transition: 0.5s ease-in-out; }
+        .container .card::after{content: "NIKE"; position: absolute; font-size: 12em; font-style: italic; top: 30%; left: 50%; color: rgba(255, 255, 255, 0.05); transform: translateX(-50%);}
+
+        .container .card:hover::before{clip-path: circle(300px at 80% -20%); }
+
+        .container .card .imgbox{position: absolute; top: 50%; transform: translateY(-50%); width: 100%; height: 220px; transition: all 0.5s;}
+        .container .card .imgbox img{width: 400px; position: absolute; top: 50%; left: 50%; transform:  translate(-50%,-50%); }
+
+        .container .card:hover .imgbox{top: 20px; transform: translateY(0%);}
+
+        .container .card .contentbox{position: absolute; bottom: 0; height: 100px; text-align: center; width: 100%; transition: all 0.7s;}
+        .container .card .contentbox h2{position: relative ; color: white; margin: 0 auto; font-size: 30px;}
+
+        .container .card:hover .contentbox{height: 220px; }
+
+        .container .card .contentbox .size,
+        .container .card .contentbox .color{display: flex; justify-content: center; align-items: center; padding: 8px 20px; opacity: 0; transition: all 0.5s;}
+
+        .container .card:hover .contentbox .size{opacity: 1; transition-delay: 0.5s;}
+        .container .card:hover .contentbox .color{opacity: 1; transition-delay: 0.7s;}
+
+        .container .card .contentbox .size{}
+        .container .card .contentbox .size h3{color: white; font-size: 14px; margin-right: 10px;}
+        .container .card .contentbox .size span{width: 26px; height: 26px; border-radius: 3px; display: inline-block; background-color: #fff; margin: 0 3px; font-size: 12px; line-height: 26px;
+                                                    cursor: pointer;}
+
+
+        .container .card .contentbox .color{}
+        .container .card .contentbox .color h3{color: white; font-size: 14px; margin-right: 10px;}
+        .container .card .contentbox .color span{width: 20px; height: 20px; display: inline-block; background-color: coral; border-radius: 50%; margin: 0 3px; cursor: pointer;}
+
+        .container .card .contentbox .color span:nth-child(2){background-color: rgb(179, 255, 0);}
+        .container .card .contentbox .color span:nth-child(3){background-color: palevioletred;}
+
+
+        .container .card .contentbox a{display: inline-block; padding: 10px 20px; background-color: white; color: #131313; text-decoration: none; font-weight: bold; 
+                    border-radius: 5px;margin-top: 15px; opacity: 0; transition: all 0.5s;}
+
+                    .container .card:hover .contentbox a{opacity: 1; transition-delay: 0.9s;}
+
+        .head1{font-size: 12rem; color: white; -webkit-text-stroke: 2px yellow; color: transparent; text-shadow: -1px 0px red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="imgbox">
+                <img src="img/white-canvas-sneakers-unisex-footwear-fashion.png" alt="">
+            </div>
+
+            <div class="contentbox">
+                <h2>NIKE SHOES</h2>
+                <div class="size">
+                    <h3>SIZE</h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+
+                <div class="color">
+                    <h3>COLOR</h3>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <a href="#">Buy Now</a>
+
+                <div class="head1">NIKE</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
